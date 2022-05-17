@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&family=Ubuntu&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/eff61f70a8.js" crossorigin="anonymous"></script>
-
+  <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -109,35 +109,6 @@ for (i = 0; i < coll.length; i++) {
       content.style.maxHeight = content.scrollHeight + "px";
     }
   });
-}
-
-function resetImg(img) {
-  img.setAttribute('class', 'img-fluid card-top-img')
-  img.setAttribute('onclick', 'enlargeImg(this)')
-
-}
-// Function to increase image size
-function enlargeImg(img) {
-
-    var currWidth = img.clientWidth;
-    var currHeight = img.clientHeight;
-    var desired_scale_x = 0.9 * screen.width / currWidth
-    var desired_scale_y = 0.9 * screen.height / currHeight
-
-    var image_x = 0.1 * screen.width
-    var image_y = 0.1 * screen.height
-    img.className = "fullscreen";
-    img.setAttribute('onclick', 'resetImg(this)')
-
-
-}
-
-
-function show_image(src, width, height, alt) {
-    var img = document.createElement("img");
-    img.src = src;
-    img.style.display = "block";
-    document.body.appendChild(img);
 }
 </script>
 
