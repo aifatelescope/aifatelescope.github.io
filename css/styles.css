@@ -73,3 +73,7 @@ body {
     margin-left: auto;
 }
 
+.content p{
+    font-weight: bold;
+}
+
