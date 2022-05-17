@@ -50,16 +50,14 @@ body {
 
 
 
-img:hover{
+#gallery img:hover{
     cursor: pointer;
 }
 
 .fullscreen{
     position : fixed;
-    top : 5%;
-    left: 12.5%;
-    height : 90%;
-    width : auto;
+    top: 0%;
+    left: 0%;
 
 }
 
