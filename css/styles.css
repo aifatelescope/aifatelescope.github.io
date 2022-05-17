@@ -51,7 +51,6 @@ body {
 
 
 img:hover{
-    border: 2px solid;
     cursor: pointer;
 }
 
@@ -62,5 +61,17 @@ img:hover{
     height : 90%;
     width : auto;
 
+}
+
+@media (max-width: 780px) {
+.col-sm-12{
+    text-align: center;
+
+}
+}
+
+.col-sm-12 img {
+    display:block;
+    margin-left: auto;
 }
 
