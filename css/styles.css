@@ -51,7 +51,7 @@ body {
 
 
 img:hover{
-    opacity: 90%;
+    border: 2px solid;
     cursor: pointer;
 }
 
