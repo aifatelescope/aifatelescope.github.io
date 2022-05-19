@@ -17,17 +17,27 @@ function enlargeImg(img) {
     img.setAttribute('onclick', 'resetImg(this)')
     var elements = document.querySelectorAll('.fullscreen');
     for(var i=0; i<elements.length; i++){
+
         if (desired_scale_x > desired_scale_y) {
-        elements[i].style.height = currHeight + "px";
+        elements[i].style.height = 0.95 * currHeight + "px";
         elements[i].style.width = "auto";
-        elements[i].style.left = (currWidth - elements[i].width) / 2 + "px";
         }
         else {
-        elements[i].style.width = currWidth + "px";
+        elements[i].style.width = 0.95 * currWidth + "px";
         elements[i].style.height = "auto";
-        elements[i].style.top = (currHeight - elements[i].height) / 2 + "px";
         }
-        elements[i].style.margin = "0 auto";
+
+
+        elements[i].style.borderTop =  (window.innerHeight - elements[i].height) / 2 + "px solid #f4f4f4";
+        elements[i].style.borderBottom = (window.innerHeight - elements[i].height) / 2 + "px solid #f4f4f4";
+        elements[i].style.borderLeft = (window.innerWidth - elements[i].width)  / 2 + "px solid #f4f4f4";
+        elements[i].style.borderRight = (window.innerWidth - elements[i].width) / 2 + "px solid #f4f4f4";
+
+
+
+
+
+
 }
 
 
