@@ -7,8 +7,8 @@ function resetImg(img) {
 // Function to increase image size
 function enlargeImg(img) {
 
-    var currWidth = window.innerWidth;
-    var currHeight = window.innerHeight;
+    const currWidth = window.innerWidth;
+    const currHeight = window.innerHeight;
     var desired_scale_x = 0.9 * currWidth / img.width
     var desired_scale_y = 0.9 * currHeight / img.height
 
@@ -19,19 +19,22 @@ function enlargeImg(img) {
     for(var i=0; i<elements.length; i++){
 
         if (desired_scale_x > desired_scale_y) {
-        elements[i].style.height = 0.95 * currHeight + "px";
+        elements[i].style.height = currHeight + "px";
         elements[i].style.width = "auto";
         }
         else {
-        elements[i].style.width = 0.95 * currWidth + "px";
+        elements[i].style.width = currWidth + "px";
         elements[i].style.height = "auto";
         }
 
+        const height = elements[i].height;
+        const width = elements[i].width;
 
-        elements[i].style.borderTop =  (window.innerHeight - elements[i].height) / 2 + "px solid #f4f4f4";
-        elements[i].style.borderBottom = (window.innerHeight - elements[i].height) / 2 + "px solid #f4f4f4";
-        elements[i].style.borderLeft = (window.innerWidth - elements[i].width)  / 2 + "px solid #f4f4f4";
-        elements[i].style.borderRight = (window.innerWidth - elements[i].width) / 2 + "px solid #f4f4f4";
+
+        elements[i].style.borderTop =  (window.innerHeight - 0.95 * height) / 2 + "px solid #f4f4f4";
+        elements[i].style.borderBottom = (window.innerHeight - 0.95 * height) / 2 + "px solid #f4f4f4";
+        elements[i].style.borderLeft = (window.innerWidth - 0.95 * width)  / 2 + "px solid #f4f4f4";
+        elements[i].style.borderRight = (window.innerWidth - 0.95 * width) / 2 + "px solid #f4f4f4";
 
 
 
