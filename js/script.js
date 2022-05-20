@@ -1,6 +1,6 @@
 function resetImg(img) {
   img.setAttribute('style', '')
-  img.setAttribute('class', 'd-block w-100')
+  img.setAttribute('class', 'img-fluid card-img-top')
   img.setAttribute('onclick', 'enlargeImg(this)')
 
    var elements = document.getElementsByClassName('carousel-control-next');
