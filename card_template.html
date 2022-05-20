@@ -1,7 +1,28 @@
 <!-- Gallery item -->
 <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-    <!-- Include your image here -->
-    <div class="bg-white rounded shadow-sm"><img src="images/<your_image>" alt="" class="img-fluid card-img-top" onclick="enlargeImg(this)">
+  <div class="bg-white rounded shadow-sm">
+       <!-- Include your image here -->
+      <!-- Option 1: If you just have one image insert it below -->
+      <img src="images/<your_image>" alt="" class="img-fluid card-img-top" onclick="enlargeImg(this)">
+
+      <!-- Option 2: If you want to show more than one image fill them in this carousel -->
+
+      <!--<div id="<unique_id>" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="images/<your_image>" alt="First slide" onclick="enlargeImg(this)">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="<unique_id>" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="<unique_id>" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+      </div>-->
+
       <div class="p-6">
           <!-- Name of the object you observed -->
         <button type="button" class="collapsible"><h5> <a href="#" class="text-dark"> NAME OF YOUR OBJECT </a></h5>

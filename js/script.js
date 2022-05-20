@@ -1,7 +1,17 @@
 function resetImg(img) {
   img.setAttribute('style', '')
-  img.setAttribute('class', 'img-fluid card-top-img')
+  img.setAttribute('class', 'd-block w-100')
   img.setAttribute('onclick', 'enlargeImg(this)')
+
+   var elements = document.getElementsByClassName('carousel-control-next');
+        for (var i in elements) {
+          elements[i].style.display = "block";
+        }
+
+   var elements = document.getElementsByClassName('carousel-control-prev');
+       for (var i in elements) {
+         elements[i].style.display = "block";
+       }
 
 
 }
@@ -37,6 +47,15 @@ function enlargeImg(img) {
         elements[i].style.borderLeft = (window.innerWidth - 0.95 * width)  / 2 + "px solid #f4f4f4";
         elements[i].style.borderRight = (window.innerWidth - 0.95 * width) / 2 + "px solid #f4f4f4";
 
+       var elements = document.getElementsByClassName('carousel-control-next');
+        for (var i in elements) {
+          elements[i].style.display = "none";
+        }
+
+        var elements = document.getElementsByClassName('carousel-control-prev');
+        for (var i in elements) {
+          elements[i].style.display = "none";
+        }
 
 
 
