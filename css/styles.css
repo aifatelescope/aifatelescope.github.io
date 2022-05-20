@@ -58,7 +58,7 @@ body {
     position : fixed;
     top: 0%;
     left: 0%;
-
+    animation: zoom-in-zoom-out 0.25s linear;
 }
 
 @media (max-width: 780px) {
@@ -71,6 +71,7 @@ body {
 .col-sm-12 img {
     display:block;
     margin-left: auto;
+
 }
 
 .content p{
@@ -82,3 +83,21 @@ body {
     font-size: 0.9em;
 }
 
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(0.90, 0.90);
+  }
+  25% {
+    transform: scale(0.925, 0.925);
+  }
+  50% {
+    transform: scale(0.95, 0.95);
+  }
+  75% {
+    transform: scale(0.975, 0.975);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

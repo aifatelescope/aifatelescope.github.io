@@ -3,6 +3,7 @@ function resetImg(img) {
   img.setAttribute('class', 'img-fluid card-top-img')
   img.setAttribute('onclick', 'enlargeImg(this)')
 
+
 }
 // Function to increase image size
 function enlargeImg(img) {
@@ -35,6 +36,8 @@ function enlargeImg(img) {
         elements[i].style.borderBottom = (window.innerHeight - 0.95 * height) / 2 + "px solid #f4f4f4";
         elements[i].style.borderLeft = (window.innerWidth - 0.95 * width)  / 2 + "px solid #f4f4f4";
         elements[i].style.borderRight = (window.innerWidth - 0.95 * width) / 2 + "px solid #f4f4f4";
+
+
 
 
 
