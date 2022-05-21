@@ -32,7 +32,7 @@
 
 <div class="container-fluid">
   <div class="px-lg-5">
-    <div class="row py-5">
+    <div class="row pt-5 pb-2">
       <div class="col-lg-12 mx-auto">
         <div class="text-white p-5 shadow-sm rounded banner">
           <div class="row">
@@ -50,11 +50,18 @@
         </div>
       </div>
     </div>
+    <nav class="navbar navbar-dark rounded mb-2" style="background-color: #6ca6c1;">
+      <div class="container-fluid">
+        <form class="d-flex mx-auto">
+          <input class="form-control me-2" type="search" placeholder="Search by name"  aria-label="Search" id="search">
+        </form>
+      </div>
+    </nav>
 
     <div class="row" id="gallery">
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-        <div class="bg-white rounded shadow-sm">
+      <div class="single-card col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="single-card-rounded bg-white rounded shadow-sm">
           <div id="c1" class="carousel slide" data-bs-interval="false">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -73,7 +80,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
           </div>
-          <div class="p-6">
+          <div class="single-card-body p-6">
             <button type="button" class="collapsible"><h5> <a href="#" class="text-dark">M13 - Globular Cluster</a></h5>
               <p class="small text-muted mb-0">Credit: AIfA / Henning Jansen</p>
             </button>
@@ -110,9 +117,10 @@
 
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-        <div class="bg-white rounded shadow-sm"><img src="images/m51_retry.jpg" alt="" class="img-fluid card-img-top" onclick="enlargeImg(this)">
-          <div class="p-6">
+      <div class="single-card col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="single-card-rounded bg-white rounded shadow-sm">
+          <img src="images/m51_retry.jpg" alt="" class="img-fluid card-img-top" onclick="enlargeImg(this)">
+          <div class="single-card-body p-6">
             <button type="button" class="collapsible"><h5> <a href="#" class="text-dark">M51 - The Whirlpool Galaxy</a></h5>
               <p class="small text-muted mb-0">Credit: AIfA / Henning Jansen</p>
             </button>
@@ -146,9 +154,10 @@
       <!-- End -->
 
       <!-- Gallery item -->
-      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-        <div class="bg-white rounded shadow-sm"><img src="images/M82_reprocess.jpg" alt="" class="img-fluid card-img-top" onclick="enlargeImg(this)">
-          <div class="p-6">
+      <div class="single-card col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div class="single-card-rounded bg-white rounded shadow-sm">
+          <img src="images/M82_reprocess.jpg" alt="" class="img-fluid card-img-top" onclick="enlargeImg(this)">
+          <div class="single-card-body p-6">
             <button type="button" class="collapsible"><h5> <a href="#" class="text-dark">M82 - The Cigar Galaxy</a></h5>
               <p class="small text-muted mb-0">Credit: AIfA / Henning Jansen and Kathrin Grunthal</p>
             </button>
@@ -202,11 +211,21 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+// this overrides `contains` to make it case insenstive
+jQuery.expr[':'].contains = function(a, i, m) {
+  return jQuery(a).text().toUpperCase()
+      .indexOf(m[3].toUpperCase()) >= 0;
+};
+
+$('#search').keyup(function (){
+    $('.single-card').removeClass('d-none');
+    var filter = $(this).val(); // get the value of the input, which we filter on
+    if (filter) {
+    $('#gallery').find('.single-card .single-card-rounded .single-card-body h5:not(:contains("'+filter+'"))').parent().parent().parent().parent().addClass('d-none');
+    }
+})
 </script>
-
-
-
-
 
 </body>
 
