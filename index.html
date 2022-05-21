@@ -52,9 +52,21 @@
     </div>
     <nav class="navbar navbar-dark rounded mb-2" style="background-color: #6ca6c1;">
       <div class="container-fluid">
-        <form class="d-flex mx-auto">
-          <input class="form-control me-2" type="search" placeholder="Search by name"  aria-label="Search" id="search">
-        </form>
+        <div class = "row mx-auto">
+          <div class="col-sm-6 my-sm-0 mb-2">
+            <select class="selectpicker form-select" aria-label="Default select example">
+              <option selected>Search by</option>
+              <option value="1">Object name</option>
+              <option value="2">Author</option>
+              <option value="3">Category</option>
+            </select>
+          </div>
+          <div class="col-6 mx-auto mx-sm-0">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search"  aria-label="Search" id="search">
+            </form>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -82,7 +94,8 @@
           </div>
           <div class="single-card-body p-6">
             <button type="button" class="collapsible"><h5> <a href="#" class="text-dark">M13 - Globular Cluster</a></h5>
-              <p class="small text-muted mb-0">Credit: AIfA / Henning Jansen</p>
+              <p class="credit small text-muted mb-0">Credit: AIfA / Henning Jansen</p>
+              <p class="category small text-muted mb-0">Hobby image</p>
             </button>
             <div class="content">
               <p class="mb-0"> General Information:</p>
@@ -122,7 +135,8 @@
           <img src="images/m51_retry.jpg" alt="" class="img-fluid card-img-top" onclick="enlargeImg(this)">
           <div class="single-card-body p-6">
             <button type="button" class="collapsible"><h5> <a href="#" class="text-dark">M51 - The Whirlpool Galaxy</a></h5>
-              <p class="small text-muted mb-0">Credit: AIfA / Henning Jansen</p>
+              <p class="credit small text-muted mb-0">Credit: AIfA / Henning Jansen</p>
+              <p class="category small text-muted mb-0">Hobby image</p>
             </button>
             <div class="content">
               <p class="mb-0"> General Information:</p>
@@ -159,7 +173,8 @@
           <img src="images/M82_reprocess.jpg" alt="" class="img-fluid card-img-top" onclick="enlargeImg(this)">
           <div class="single-card-body p-6">
             <button type="button" class="collapsible"><h5> <a href="#" class="text-dark">M82 - The Cigar Galaxy</a></h5>
-              <p class="small text-muted mb-0">Credit: AIfA / Henning Jansen and Kathrin Grunthal</p>
+              <p class="credit small text-muted mb-0">Credit: AIfA / Henning Jansen and Kathrin Grunthal</p>
+              <p class="category small text-muted mb-0">Hobby image</p>
             </button>
             <div class="content">
               <p class="mb-0"> General Information:</p>
@@ -218,12 +233,27 @@ jQuery.expr[':'].contains = function(a, i, m) {
       .indexOf(m[3].toUpperCase()) >= 0;
 };
 
+var selectedItem = 0;
+
+$('.selectpicker').change(function () {
+        selectedItem = $('.selectpicker').val();
+        document.getElementById("demo").innerHTML = selectedItem;
+    });
+
 $('#search').keyup(function (){
     $('.single-card').removeClass('d-none');
     var filter = $(this).val(); // get the value of the input, which we filter on
     if (filter) {
-    $('#gallery').find('.single-card .single-card-rounded .single-card-body h5:not(:contains("'+filter+'"))').parent().parent().parent().parent().addClass('d-none');
-    }
+      if (selectedItem == 1) {
+        $('#gallery').find('.single-card .single-card-rounded .single-card-body h5:not(:contains("'+filter+'"))').
+        parent().parent().parent().parent().addClass('d-none');}
+      else if (selectedItem == 2) {
+        $('#gallery').find('.single-card .single-card-rounded .single-card-body .credit:not(:contains("'+filter+'"))').
+        parent().parent().parent().parent().addClass('d-none');}
+      else if (selectedItem == 3) {
+        $('#gallery').find('.single-card .single-card-rounded .single-card-body .category:not(:contains("'+filter+'"))').
+        parent().parent().parent().parent().addClass('d-none');}
+    };
 })
 </script>
 
