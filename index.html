@@ -111,29 +111,38 @@
         includeCards();
       </script>
 
-
+    <div id="demo"></div>
     </div>
   </div>
 </div>
 
 
 <script>
-setTimeout( function(){
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
+var input_divs = document.querySelectorAll('[w3-include-html]')
 
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight){
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
-  };
-}, 2000);
+// this checks if all divs are successfully implemented and then adds the event listener
+function checkFlag() {
+    if(document.getElementsByClassName("collapsible").length < input_divs.length) {
+       window.setTimeout(checkFlag, 100); /* this checks the flag every 100 milliseconds*/
+    } else {
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      };
+    }
+}
+
+checkFlag();
 
 // this overrides `contains` to make it case insenstive
 jQuery.expr[':'].contains = function(a, i, m) {
