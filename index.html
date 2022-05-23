@@ -118,7 +118,7 @@
 
 
 <script>
-window.addEventListener("load", function(){
+setTimeout( function(){
   var coll = document.getElementsByClassName("collapsible");
   var i;
 
@@ -133,7 +133,7 @@ window.addEventListener("load", function(){
       }
     });
   };
-});
+}, 2000);
 
 // this overrides `contains` to make it case insenstive
 jQuery.expr[':'].contains = function(a, i, m) {
