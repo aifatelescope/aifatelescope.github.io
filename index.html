@@ -110,26 +110,30 @@
       <script>
         includeCards();
       </script>
+
+
     </div>
   </div>
 </div>
 
 
 <script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
+window.addEventListener("load", function(){
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
-}
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  };
+});
 
 // this overrides `contains` to make it case insenstive
 jQuery.expr[':'].contains = function(a, i, m) {
