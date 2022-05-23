@@ -240,7 +240,7 @@ $('.selectpicker').change(function () {
         document.getElementById("demo").innerHTML = selectedItem;
     });
 
-$('#search').keyup(function (){
+$('#search').on("input", function(){
     $('.single-card').removeClass('d-none');
     var filter = $(this).val(); // get the value of the input, which we filter on
     if (filter) {
