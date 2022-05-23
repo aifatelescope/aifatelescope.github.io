@@ -2,7 +2,7 @@ function resetImg(img) {
   img.setAttribute('style', '')
   img.setAttribute('class', 'img-fluid card-img-top')
   img.setAttribute('onclick', 'enlargeImg(this)')
-  img.src = "images/thumbnail/" + image_name;
+  img.src = image_folder + "thumbnail/" + image_name;
 
    var elements = document.getElementsByClassName('carousel-control-next');
         for (var i in elements) {
@@ -18,6 +18,7 @@ function resetImg(img) {
 }
 
 var image_name = 0
+var image_folder = 0
 // Function to increase image size
 function enlargeImg(img) {
 
@@ -29,7 +30,8 @@ function enlargeImg(img) {
 
     img.className = "fullscreen";
     image_name = img.src.split("thumbnail/").pop();
-    img.src = "images/full_size/" + image_name;
+    image_folder = img.src.split("thumbnail/")[0];
+    img.src = image_folder + "full_size/" + image_name;
     img.setAttribute('onclick', 'resetImg(this)');
 
     var elements = document.querySelectorAll('.fullscreen');
