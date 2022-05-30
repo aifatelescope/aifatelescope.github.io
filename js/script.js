@@ -4,17 +4,10 @@ function resetImg(img) {
   img.setAttribute('onclick', 'enlargeImg(this)')
   img.src = image_folder + "thumbnail/" + image_name;
 
-   var elements = document.getElementsByClassName('carousel-control-next');
+   var elements = document.getElementsByClassName('carousel');
         for (var i in elements) {
-          elements[i].style.display = "block";
+          elements[i].style.visibility = "visible";
         }
-
-   var elements = document.getElementsByClassName('carousel-control-prev');
-       for (var i in elements) {
-         elements[i].style.display = "block";
-       }
-
-
 }
 
 var image_name = 0
@@ -33,6 +26,7 @@ function enlargeImg(img) {
     image_folder = img.src.split("thumbnail/")[0];
     img.src = image_folder + "full_size/" + image_name;
     img.setAttribute('onclick', 'resetImg(this)');
+    img.style.visibility = "visible";
 
     var elements = document.querySelectorAll('.fullscreen');
     for(var i=0; i<elements.length; i++){
@@ -55,15 +49,11 @@ function enlargeImg(img) {
         elements[i].style.borderLeft = (window.innerWidth - 0.95 * width)  / 2 + "px solid #f4f4f4";
         elements[i].style.borderRight = (window.innerWidth - 0.95 * width) / 2 + "px solid #f4f4f4";
 
-       var elements = document.getElementsByClassName('carousel-control-next');
+       var elements = document.getElementsByClassName('carousel');
         for (var i in elements) {
-          elements[i].style.display = "none";
-        }
+          elements[i].style.visibility ="hidden";
+        };
 
-        var elements = document.getElementsByClassName('carousel-control-prev');
-        for (var i in elements) {
-          elements[i].style.display = "none";
-        }
     };
 
 
