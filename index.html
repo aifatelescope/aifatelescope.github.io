@@ -69,7 +69,7 @@
           <h1 class="display-4">
             AIfA telescope gallery
           </h1>
-          <p class="lead">Highlights of results from the 50cm AIfA telescope</p>
+          <p class="lead">Collection of personal results from the 50cm AIfA telescope</p>
               <p class="small"> All content is released under <a href="https://creativecommons.org/licenses/by-sa/4.0/"> CC BY-SA 4.0 </a></p>
               </div>
             <div class="col-lg-6 col-sm-12">
@@ -88,6 +88,7 @@
               <option value="1">Object name</option>
               <option value="2">Author</option>
               <option value="3">Category</option>
+              <option value="4">Date</option>
             </select>
           </div>
           <div class="col-6 mx-auto mx-sm-0">
@@ -108,7 +109,6 @@
 
       <div w3-include-html="cards/M82_Henning_Kathrin/m82_henning_kathrin.html" class="single-card col-xl-3 col-lg-4 col-md-6 mb-4"></div>
       <div w3-include-html="cards/Jupiter_20140309_Malte/Jupiter_20140309_Malte.html" class="single-card col-xl-3 col-lg-4 col-md-6 mb-4"></div>
-
       <script>
         includeCards();
       </script>
@@ -170,6 +170,9 @@ $('#search').on("input", function(){
         parent().parent().parent().parent().addClass('d-none');}
       else if (selectedItem == 3) {
         $('#gallery').find('.single-card .single-card-rounded .single-card-body .category:not(:contains("'+filter+'"))').
+        parent().parent().parent().parent().addClass('d-none');}
+      else if (selectedItem == 4) {
+        $('#gallery').find('.single-card .single-card-rounded .single-card-body .date:not(:contains("'+filter+'"))').
         parent().parent().parent().parent().addClass('d-none');}
     };
 })
